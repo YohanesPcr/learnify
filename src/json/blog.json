@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "category": "Getting Started",
+    "date": "Dec, 2024",
+    "title": "Digital Transformation: How Direct Marketing has evolved in Canada during the Pandemic",
+    "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsXlatrIZ42GEiVKgM0K3OaBX0aQ-hwLPr9A&s"
+  },
+  {
+    "id": 2,
+    "category": "Getting Started",
+    "date": "Dec, 2024",
+    "title": "Digital Transformation: How Direct Marketing has evolved in Canada during the Pandemic",
+    "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRC2kQDsvhCNiLK5trAdF8f14MBz-IVkvWD-thayOZzi8_JVDfhRQmQ9zDDEmGsH1Wl6k&usqp=CAU"
+  },
+  {
+    "id": 3,
+    "category": "Advanced Topics",
+    "date": "Jan, 2025",
+    "title": "AI in Marketing: The Future of Consumer Behavior Analysis",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxFRaheFv3VptmYzTVEPD0ptwvvbKgzQMRcg&s"
+  },
+  {
+    "id": 4,
+    "category": "Advanced Topics",
+    "date": "Jan, 2025",
+    "title": "AI in Marketing: The Future of Consumer Behavior Analysis",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1GB74RQfom5v1ozuPLfWFf1n01HgZ5WoGmfdKyRluNfMWxeHZRpelZM8bAS-5iN8s2yQ&usqp=CAU"
+  },
+  {
+    "id": 5,
+    "category": "Digital Strategy",
+    "date": "Feb, 2025",
+    "title": "How Social Media Strategies Have Changed Post-Pandemic",
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1TH1xuOcjep_jKXr9pZBBnfBnLcpevqttcqHRcvXqdIf_qF1XtP2B5rMqm1RLsChjlbA&usqp=CAU"
+  },
+  {
+    "id": 6,
+    "category": "Digital Strategy",
+    "date": "Feb, 2025",
+    "title": "How Social Media Strategies Have Changed Post-Pandemic",
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.",
+    "image": "data:image/jpeg;base64,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"
+  },
+  {
+    "id": 7,
+    "category": "SEO & Analytics",
+    "date": "Mar, 2025",
+    "title": "The Evolution of Search Engine Optimization and its Impact on Digital Marketing",
+    "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTlB0kKRWznGtjUnFVCU4ayI_yQsBjAXOYmQ&s"
+  },
+  {
+    "id": 8,
+    "category": "SEO & Analytics",
+    "date": "Mar, 2025",
+    "title": "The Evolution of Search Engine Optimization and its Impact on Digital Marketing",
+    "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoXLgyu8z-FgiyHCyU0azwodSsiTOa2p9T0g&s"
+  },
+  {
+    "id": 9,
+    "category": "Digital Strategy",
+    "date": "Apr, 2025",
+    "title": "Building a Robust Digital Marketing Strategy for 2025",
+    "description": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCsxZ6UIjGt8QrVcd0xe_ZcG2QZ1A68VLBLA&s"
+  },
+  {
+    "id": 10,
+    "category": "Digital Strategy",
+    "date": "Apr, 2025",
+    "title": "Building a Robust Digital Marketing Strategy for 2025",
+    "description": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYWIq7eIExjU5C533dvKkw86ob3R4MHhrg_g&s"
+  },
+  {
+    "id": 11,
+    "category": "Getting Started",
+    "date": "May, 2025",
+    "title": "The Basics of Digital Marketing for Beginners",
+    "description": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk9Ycy2oWclkUXFbgD1dIYyqwkKLfSIq-iew&s"
+  },
+  {
+    "id": 12,
+    "category": "Getting Started",
+    "date": "May, 2025",
+    "title": "The Basics of Digital Marketing for Beginners",
+    "description": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgcXS84VPwiwzUYi5_IzWjxFKTJWZUHIPsTQ&s"
+  }
+]

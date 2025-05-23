@@ -1,0 +1,101 @@
+/* Styling Halaman dengan Efek Animasi */
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background-size: 300% 300%;
+    animation: backgroundMove 15s infinite linear;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container-card {
+    max-width: 960px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 25px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 60%);
+    transform: rotate(25deg);
+    animation: pulseLight 5s infinite linear;
+}
+
+@keyframes pulseLight {
+    0% { transform: translate(-50%, -50%) rotate(25deg); }
+    50% { transform: translate(50%, 50%) rotate(25deg); }
+    100% { transform: translate(-50%, -50%) rotate(25deg); }
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.artikel-item, .qna-item, .product-item {
+    padding: 16px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    transition: background 0.3s, transform 0.2s;
+    border-radius: 8px;
+}
+
+.artikel-item:hover, .qna-item:hover, .product-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+h1 {
+    color: #f8d210;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 3px 3px 10px rgba(255, 210, 16, 0.6);
+}
+
+h2 {
+    color: #ff6f61;
+    font-size: 28px;
+    text-shadow: 2px 2px 8px rgba(255, 111, 97, 0.6);
+}
+
+h3, h4 {
+    color: #ffffff;
+}
+
+footer {
+    margin-top: 35px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+}

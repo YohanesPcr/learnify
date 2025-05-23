@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/Barlow-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-ExtraBold';
+  src: url('/fonts/Poppins-ExtraBold.ttf');
+}
+
+@theme {
+  --font-barlow: 'Barlow', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-poppins-extrabold: 'Poppins-ExtraBold', sans-serif;
+
+  --color-latar: #f3f4f6;
+  --color-teks: #374151;
+  --color-teks-samping: #6b7280;
+  --color-garis: #e5e7eb;
+  --color-hijau: #00B074;
+  --color-merah: #ef4444;
+  --color-biru: #3b82f6;
+  --color-kuning: #f59e0b;
+}
+
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--color-latar);
+  color: var(--color-teks);
+}
+
+.sidebar {
+  background-color: white;
+  color: var(--color-teks-samping);
+  font-family: var(--font-poppins);
+}
+
+.sidebar .active {
+  background-color: var(--color-hijau);
+  color: white;
+}
+
+.header {
+  font-family: var(--font-poppins);
+  background-color: white;
+  border-bottom: 1px solid var(--color-garis);
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+.stat-title {
+  font-weight: bold;
+  font-family: var(--font-poppins-extrabold);
+}

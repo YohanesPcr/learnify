@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* ====== Custom Fonts ====== */
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/Barlow-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Poppins-ExtraBold';
+  src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
+}
+
+/* ====== Global CSS Variables ====== */
+:root {
+  --font-barlow: 'Barlow', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-poppins-extrabold: 'Poppins-ExtraBold', sans-serif;
+
+  --color-latar: #f3f4f6;
+  --color-teks: #374151;
+  --color-teks-samping: #6b7280;
+  --color-garis: #e5e7eb;
+  --color-hijau: #00B074;
+  --color-biru: #3b82f6;
+  --color-merah: #ef4444;
+  --color-kuning: #f59e0b;
+  --color-biru-muda: #E6F7F4;
+}
+
+/* ====== Base Style ====== */
+@layer base {
+  body {
+    @apply font-sans;
+    font-family: var(--font-poppins);
+    background-color: var(--color-latar);
+    color: var(--color-teks);
+  }
+}
+
+/* ====== Custom Components ====== */
+@layer components {
+  .btn-primary {
+    @apply bg-[#00B074] hover:bg-[#00925f] text-white font-medium px-6 py-2 rounded-md shadow;
+  }
+
+  /* Atau alternatif jika mau versi warna biru */
+  /* 
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl shadow;
+  } 
+  */
+}

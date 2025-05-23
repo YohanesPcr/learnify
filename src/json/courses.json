@@ -1,0 +1,18 @@
+[
+    {
+      "title": "UI/UX Design",
+      "desc": "Learn how to design user-friendly and engaging interfaces with real-world projects.",
+      "image": "/img/uiux.jpg"
+    },
+    {
+      "title": "Digital Marketing",
+      "desc": "Master SEO, social media, and advertising to grow your brand and business online.",
+      "image": "/img/marketing.jpg"
+    },
+    {
+      "title": "Web Development",
+      "desc": "Build modern and responsive websites using HTML, CSS, JavaScript, and frameworks.",
+      "image": "/img/1.jpg"
+    }
+  ]
+  

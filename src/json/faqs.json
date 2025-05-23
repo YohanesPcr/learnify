@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "question": "Do you provide student support?",
+      "answer": "Participate in our live webinars and workshops conducted by experts in the field. These sessions cover advanced topics, provide hands-on experiences, and offer opportunities for direct interaction with instructors."
+    },
+    {
+      "id": 2,
+      "question": "How do I update my profile information?",
+      "answer": "You can update your profile by going to the settings page, clicking on ‘Edit Profile’, and saving your changes."
+    },
+    {
+      "id": 3,
+      "question": "Do you provide student support?",
+      "answer": "Yes, we offer 24/7 student support through chat, email, and phone. Our support team is ready to assist you with any queries regarding courses, payments, or technical issues."
+    },
+    {
+      "id": 4,
+      "question": "What is your benefit of courses?",
+      "answer": "Our courses provide in-depth knowledge, practical skills, and industry-recognized certifications that can boost your career prospects and help you stay competitive in the job market."
+    },
+    {
+      "id": 5,
+      "question": "What is your return policy?",
+      "answer": "We offer a 14-day money-back guarantee on all purchases. If you’re not satisfied with the course, you can request a full refund within this period."
+    },
+    {
+      "id": 6,
+      "question": "How do I enroll in a course?",
+      "answer": "To enroll, simply browse our course catalog, select your preferred course, and click the 'Enroll' button. Follow the payment instructions to complete your registration."
+    }
+  ]
+  

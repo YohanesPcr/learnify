@@ -1,0 +1,242 @@
+[  
+  {  
+    "id": 1,  
+    "name": "Matematika Dasar",  
+    "description": "Kursus untuk memahami konsep dasar matematika.",  
+    "image": "https://transmediapustaka.com/wp-content/uploads/2011/02/1000_Soal_Matema_4d56aca9da5f6.gif",  
+    "details": {  
+      "instructor": "Dr. Aisyah",  
+      "duration": "10 weeks",  
+      "level": "Beginner"  
+    },  
+    "tags": ["Matematika", "Dasar", "Kursus Online"]  
+  },  
+  {  
+    "id": 2,  
+    "name": "Pengantar Pemrograman",  
+    "description": "Kursus untuk belajar dasar-dasar pemrograman dengan Python.",  
+    "image": "https://kitamenulis.id/wp-content/uploads/2024/07/Cover-Depan-24-scaled.jpg",  
+    "details": {  
+      "instructor": "Mr. Budi",  
+      "duration": "8 weeks",  
+      "level": "Beginner"  
+    },  
+    "tags": ["Pemrograman", "Python", "Kursus Online"]  
+  },  
+  {  
+    "id": 3,  
+    "name": "Filsafat Berpikir",  
+    "description": "Belajar prinsip dasar filsafat dan berpikir kritis.",  
+    "image": "data:image/jpeg;base64,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",  
+    "details": {  
+      "instructor": "Prof. Clara",  
+      "duration": "5 weeks",  
+      "level": "Intermediate"  
+    },  
+    "tags": ["Filsafat", "Berpikir", "Kursus Online"]  
+  },  
+  {  
+    "id": 4,  
+    "name": "Dasar Desain Grafis",  
+    "description": "Kursus untuk memahami dasar-dasar desain grafis.",  
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOK2N42ACfBX3-GVetVQ-qMY1Y0fueB5DtyQ&s",  
+    "details": {  
+      "instructor": "Ms. Dinda",  
+      "duration": "6 weeks",  
+      "level": "Beginner"  
+    },  
+    "tags": ["Desain", "Grafis", "Kursus Online"]  
+  },  
+  {  
+    "id": 5,  
+    "name": "Analisis Data",  
+    "description": "Kursus untuk belajar analisis data dengan Excel.",  
+    "image": "https://img.turmusi.id/73b5ac415351d955eebbd7ff329facde_large.jpg",  
+    "details": {  
+      "instructor": "Mr. Eko",  
+      "duration": "4 weeks",  
+      "level": "Intermediate"  
+    },  
+    "tags": ["Data", "Analisis", "Excel"]  
+  },  
+  {  
+    "id": 6,  
+    "name": "Sejarah Dunia",  
+    "description": "Belajar tentang sejarah dunia dari zaman kuno hingga modern.",  
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJdDcUfHp3eumuwNGrjrBrFiD6m2QR_6f5Dg&s",  
+    "details": {  
+      "instructor": "Dr. Farah",  
+      "duration": "12 weeks",  
+      "level": "Advanced"  
+    },  
+    "tags": ["Sejarah", "Kursus Online"]  
+  },  
+  {  
+    "id": 7,  
+    "name": "Biologi Sel",  
+    "description": "Kursus untuk memahami dasar-dasar biologi sel.",  
+    "image": "https://penerbitalinea.com/wp-content/uploads/2020/11/biosel-front-scaled.jpg",  
+    "details": {  
+      "instructor": "Prof. Gina",  
+      "duration": "10 weeks",  
+      "level": "Beginner"  
+    },  
+    "tags": ["Biologi", "Sains", "Kursus Online"]  
+  },  
+  {  
+    "id": 8,  
+    "name": "Kependudukan dan Kesehatan",  
+    "description": "Kursus tentang populasi dan kesehatan masyarakat.",  
+    "image": "https://ebooks.gramedia.com/ebook-covers/91131/image_highres/BLK_BRKDKM1711596213418.jpg",  
+    "details": {  
+        "instructor": "Dr. Hadi",  
+        "duration": "8 weeks",  
+        "level": "Intermediate"  
+      },  
+      "tags": ["Sociology", "Kesehatan", "Kursus Online"]  
+    },  
+    {  
+      "id": 9,  
+      "name": "Etika Profesi",  
+      "description": "Kursus mengenai etika dalam dunia profesional.",  
+      "image": "https://cdn.gramedia.com/uploads/items/9786024346904_SMK-MAK--KL.X.jpg",  
+      "details": {  
+        "instructor": "Ms. Indah",  
+        "duration": "4 weeks",  
+        "level": "Advanced"  
+      },  
+      "tags": ["Etika", "Profesional", "Kursus Online"]  
+    },  
+    {  
+      "id": 10,  
+      "name": "Statistika Dasar",  
+      "description": "Memahami dasar dari statistika dan analisis data.",  
+      "image": "https://down-id.img.susercontent.com/file/7b89ae3c5b42e326580afcae1ecda9ee",  
+      "details": {  
+        "instructor": "Mr. Joko",  
+        "duration": "6 weeks",  
+        "level": "Beginner"  
+      },  
+      "tags": ["Statistika", "Data", "Kursus Online"]  
+    },  
+    {  
+      "id": 11,  
+      "name": "Pengenalan Internet",  
+      "description": "Belajar tentang dasar-dasar internet dan cara kerjanya.",  
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY6iXYTQHl9U-vnokPDSItVJ0AFZqUxv1q6g&s",  
+      "details": {  
+        "instructor": "Ms. Lisa",  
+        "duration": "4 weeks",  
+        "level": "Beginner"  
+      },  
+      "tags": ["Internet", "Teknologi", "Dasar"]  
+    },  
+    {  
+      "id": 12,  
+      "name": "Program Manajemen Proyek",  
+      "description": "Kursus untuk memahami prinsip dasar manajemen proyek.",  
+      "image": "https://elibrary.bsi.ac.id/assets/images/buku/0052.jpg",  
+      "details": {  
+        "instructor": "Mr. Ahmad",  
+        "duration": "6 weeks",  
+        "level": "Intermediate"  
+      },  
+      "tags": ["Manajemen", "Proyek", "Kursus Online"]  
+    },  
+    {  
+      "id": 13,  
+      "name": "Dasar Pemasaran Digital",  
+      "description": "Belajar dasar-dasar pemasaran di era digital.",  
+      "image": "https://cdn.gramedia.com/uploads/products/aaem8t7vm2.jpg",  
+      "details": {  
+        "instructor": "Ms. Sarah",  
+        "duration": "5 weeks",  
+        "level": "Beginner"  
+      },  
+      "tags": ["Pemasaran", "Digital", "Kursus Online"]  
+    },  
+    {  
+      "id": 14,  
+      "name": "Kecerdasan Buatan",  
+      "description": "Kursus untuk memahami konsep dasar AI dan aplikasinya.",  
+      "image": "https://penerbit.stekom.ac.id/public/journals/12/article_437_cover_en_US.png",  
+      "details": {  
+        "instructor": "Dr. Rudi",  
+        "duration": "8 weeks",  
+        "level": "Advanced"  
+      },  
+      "tags": ["AI", "Teknologi", "Kursus Online"]  
+    },  
+    {  
+      "id": 15,  
+      "name": "HTML & CSS untuk Pemula",  
+      "description": "Belajar membuat website sederhana dengan HTML dan CSS.",  
+      "image": "https://cdn.gramedia.com/uploads/products/mv-a-g0psu.jpg",  
+      "details": {  
+        "instructor": "Ms. Nia",  
+        "duration": "6 weeks",  
+        "level": "Beginner"  
+      },  
+      "tags": ["Web Development", "HTML", "CSS"]  
+    },  
+    {  
+      "id": 16,  
+      "name": "Analisis Bisnis",  
+      "description": "Kursus untuk memahami metodologi analisis bisnis.",  
+      "image": "https://penerbit.stekom.ac.id/public/journals/12/article_426_cover_en_US.png",  
+      "details": {  
+        "instructor": "Mr. Fadli",  
+        "duration": "7 weeks",  
+        "level": "Intermediate"  
+      },  
+      "tags": ["Bisnis", "Analisis"]  
+    },  
+    {  
+      "id": 17,  
+      "name": "Machine Learning Dasar",  
+      "description": "Belajar dasar-dasar machine learning dan aplikasinya.",  
+      "image": "https://deepublishstore.com/wp-content/uploads/2022/11/machine_-1200x1801.png",  
+      "details": {  
+        "instructor": "Dr. Kevin",  
+        "duration": "10 weeks",  
+        "level": "Advanced"  
+      },  
+      "tags": ["Machine Learning", "Kursus Online"]  
+    },  
+    {  
+    "id": 18,  
+    "name": "Keuangan Dasar",  
+    "description": "Kursus untuk memahami dasar-dasar keuangan pribadi.",  
+    "image": "https://bintangpusnas.perpusnas.go.id/api/getImage/978-623-228-358-9.jpg",  
+    "details": {  
+      "instructor": "Ms. Rani",  
+      "duration": "5 weeks",  
+      "level": "Beginner"  
+    },  
+    "tags": ["Keuangan", "Ekonomi"]  
+  },  
+  {  
+    "id": 19,  
+    "name": "Kepemimpinan dan Manajemen",  
+    "description": "Belajar prinsip-prinsip kepemimpinan dan manajemen efektif.",  
+    "image": "https://ebooks.gramedia.com/ebook-covers/61034/image_highres/BLK_MDK2021809040.jpg",  
+    "details": {  
+      "instructor": "Mr. Zahir",  
+      "duration": "6 weeks",  
+      "level": "Advanced"  
+    },  
+    "tags": ["Kepemimpinan", "Manajemen"]  
+  },  
+  {  
+    "id": 20,  
+    "name": "Etika dan Hukum",  
+    "description": "Mempelajari etika dan aspek hukum dalam bisnis.",  
+    "image": "https://eyrcls.com/wp-content/uploads/2024/03/EYRCLS-Books-Collection-Etika-Hukum-531x800.jpeg",  
+    "details": {  
+      "instructor": "Dr. Rina",  
+      "duration": "8 weeks",  
+      "level": "Intermediate"  
+    },  
+    "tags": ["Hukum", "Etika", "Kursus Online"]  
+  }  
+]  
