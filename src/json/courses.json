@@ -1,18 +1,30 @@
+
 [
-    {
-      "title": "UI/UX Design",
-      "desc": "Learn how to design user-friendly and engaging interfaces with real-world projects.",
-      "image": "/img/uiux.jpg"
-    },
-    {
-      "title": "Digital Marketing",
-      "desc": "Master SEO, social media, and advertising to grow your brand and business online.",
-      "image": "/img/marketing.jpg"
-    },
-    {
-      "title": "Web Development",
-      "desc": "Build modern and responsive websites using HTML, CSS, JavaScript, and frameworks.",
-      "image": "/img/1.jpg"
-    }
-  ]
-  
+  {
+    "title": "UI/UX Design",
+    "slug": "ui-ux-design",
+    "desc": "Learn how to design user-friendly and engaging interfaces with real-world projects.",
+    "image": "/img/uiux.jpg",
+    "duration": "10 weeks",
+    "level": "Beginner",
+    "instructor": "Jane Doe"
+  },
+  {
+    "title": "Digital Marketing",
+    "slug": "digital-marketing",
+    "desc": "Master SEO, social media, and advertising to grow your brand and business online.",
+    "image": "/img/marketing.jpg",
+    "duration": "8 weeks",
+    "level": "Intermediate",
+    "instructor": "John Smith"
+  },
+  {
+    "title": "Web Development",
+    "slug": "web-development",
+    "desc": "Build modern and responsive websites using HTML, CSS, JavaScript, and frameworks.",
+    "image": "/img/1.jpg",
+    "duration": "12 weeks",
+    "level": "Advanced",
+    "instructor": "Alex Johnson"
+  }
+]

@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import komponen loading yang ditampilkan saat menunggu lazy component dimuat
 import Loading from './components/Loading';
+import Categories from './components/Categories';
+
 
 // Komponen-komponen yang awalnya di-import secara langsung tapi dikomentari untuk digantikan dengan lazy loading
 // import AuthLayout from './layouts/AuthLayout';
@@ -35,6 +37,7 @@ const Error400 = React.lazy(() => import("./error/Error400"));
 const Error401 = React.lazy(() => import("./error/Error401"));
 const MainLayout = React.lazy(() => import("./layouts/MainLayouts"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
+const CourseDetail = React.lazy(() => import("./pages/Coursedetail"));
 
 // Fungsi utama App
 function App() {  
@@ -63,6 +66,8 @@ function App() {
             <Route path="/403" element={<Error403 />} />
             {/* Halaman error untuk route yang tidak ditemukan */}
             <Route path="*" element={<Error400 />} />
+            <Route path="/categories" element={<Categories />} />
+<Route path="/course/:title" element={<CourseDetail />} />
           </Route>
 
           {/* Rute yang menggunakan layout autentikasi */}
