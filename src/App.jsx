@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Import komponen loading yang ditampilkan saat menunggu lazy component dimuat
 import Loading from './components/Loading';
 import Categories from './components/Categories';
+import MentorDetail from './pages/MentorDetail';
 
 
 // Komponen-komponen yang awalnya di-import secara langsung tapi dikomentari untuk digantikan dengan lazy loading
@@ -68,6 +69,8 @@ function App() {
             <Route path="*" element={<Error400 />} />
             <Route path="/categories" element={<Categories />} />
 <Route path="/course/:title" element={<CourseDetail />} />
+     <Route path="/mentor/:id" element={<MentorDetail />} />
+    
           </Route>
 
           {/* Rute yang menggunakan layout autentikasi */}
