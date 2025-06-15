@@ -1,4 +1,3 @@
-
 [
   {
     "title": "UI/UX Design",
@@ -7,7 +6,9 @@
     "image": "/img/uiux.jpg",
     "duration": "10 weeks",
     "level": "Beginner",
-    "instructor": "Jane Doe"
+    "instructor": "Jane Doe",
+    "price": "Rp 1.500.000",
+    "packageType": "Paket Reguler"
   },
   {
     "title": "Digital Marketing",
@@ -16,7 +17,9 @@
     "image": "/img/marketing.jpg",
     "duration": "8 weeks",
     "level": "Intermediate",
-    "instructor": "John Smith"
+    "instructor": "John Smith",
+    "price": "Rp 1.200.000",
+    "packageType": "Paket Premium"
   },
   {
     "title": "Web Development",
@@ -25,6 +28,8 @@
     "image": "/img/1.jpg",
     "duration": "12 weeks",
     "level": "Advanced",
-    "instructor": "Alex Johnson"
+    "instructor": "Alex Johnson",
+    "price": "Rp 2.000.000",
+    "packageType": "Paket Intensif"
   }
 ]

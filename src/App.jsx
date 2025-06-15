@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading';
 import Categories from './components/Categories';
 import MentorDetail from './pages/MentorDetail';
+import ContactUs from './pages/ContactUs';
+import RegisterPaketForm from './pages/RegisterPaketForm';
 
 
 // Komponen-komponen yang awalnya di-import secara langsung tapi dikomentari untuk digantikan dengan lazy loading
@@ -62,6 +64,7 @@ function App() {
             <Route path="/faq" element={<FaqPage />} />
             {/* Halaman daftar mentor */}
             <Route path="/mentor" element={<MentorList />} />
+             <Route path="/contact" element={<ContactUs/>} />
             {/* Halaman error khusus */}
             <Route path="/401" element={<Error401 />} />
             <Route path="/403" element={<Error403 />} />
@@ -70,6 +73,7 @@ function App() {
             <Route path="/categories" element={<Categories />} />
 <Route path="/course/:title" element={<CourseDetail />} />
      <Route path="/mentor/:id" element={<MentorDetail />} />
+         <Route path="/register/:slug" element={<RegisterPaketForm />} />
     
           </Route>
 

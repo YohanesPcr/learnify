@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import courseData from '../json/courses.json';
+import { Link } from 'react-router-dom'; // tambahkan ini
 
 export default function CourseDetail() {
   const { title } = useParams();
@@ -32,14 +33,28 @@ export default function CourseDetail() {
           <p className="text-gray-700 text-base">{course.desc}</p>
 
           <div className="border-t pt-4 space-y-2">
-            <p><span className="font-semibold text-gray-800">Instructor:</span> {course.instructor}</p>
-            <p><span className="font-semibold text-gray-800">Duration:</span> {course.duration}</p>
-            <p><span className="font-semibold text-gray-800">Level:</span> {course.level}</p>
+            <p>
+              <span className="font-semibold text-gray-800">Instructor:</span> {course.instructor}
+            </p>
+            <p>
+              <span className="font-semibold text-gray-800">Duration:</span> {course.duration}
+            </p>
+            <p>
+              <span className="font-semibold text-gray-800">Level:</span> {course.level}
+            </p>
+            <p>
+              <span className="font-semibold text-gray-800">Paket:</span> {course.packageType}
+            </p>
+            <p>
+              <span className="font-semibold text-gray-800">Harga:</span> {course.price}
+            </p>
           </div>
 
-          <button className="mt-6 bg-[#00B074] hover:bg-[#007f61] text-white font-medium py-2 px-6 rounded-lg shadow">
-            Daftar Sekarang
-          </button>
+          <Link to={`/register/${course.slug}`}>
+  <button className="mt-6 bg-[#00B074] hover:bg-[#007f61] text-white font-medium py-2 px-6 rounded-lg shadow">
+    Daftar Sekarang
+  </button>
+</Link>
         </div>
       </div>
     </section>

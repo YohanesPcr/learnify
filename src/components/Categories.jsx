@@ -42,7 +42,6 @@ export default function Categories() {
 
         {/* Buttons for categories */}
         <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-10">
-          {/* Button All Categories */}
           <button
             className={`px-6 py-2 rounded-md text-sm font-medium transition ${
               selectedCategory === '' ? 'bg-[#004C3F] text-white' : 'bg-gray-200 text-gray-700'
@@ -52,7 +51,6 @@ export default function Categories() {
             All Categories
           </button>
 
-          {/* Other category buttons */}
           {['Design', 'Marketing', 'Development'].map((cat, i) => (
             <button
               key={i}
@@ -75,7 +73,12 @@ export default function Categories() {
                 alt={course.title}
                 className="rounded-lg w-full h-48 object-cover mb-4"
               />
-              <h4 className="text-[#00B074] font-semibold mb-1">{course.title}</h4>
+              <h4 className="text-[#00B074] font-semibold text-lg">{course.title}</h4>
+
+              {/* Harga dan tipe paket */}
+              <p className="text-sm text-[#004C3F] font-semibold">{course.packageType}</p>
+              <p className="text-sm text-[#004C3F] font-bold mb-1">{course.price}</p>
+
               <p className="text-sm text-gray-500 leading-relaxed mb-3">{course.desc}</p>
               <div className="flex justify-between items-center text-sm text-gray-600">
                 <div className="flex items-center gap-1">

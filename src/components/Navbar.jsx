@@ -38,16 +38,16 @@ export default function Navbar() {
         <li id="menu-blog">
           <NavLink to="/blog" className={menuClass}>Blog</NavLink>
         </li>
-        <li id="menu-college">
+        <li id="menu-learning">
          <NavLink to="/401" className={menuClass}>My Learning</NavLink>
         </li>
-        <li id="menu-jobs">
-          <NavLink to="/403" className={menuClass}>Jobs</NavLink>
+        <li id="menu-contact">
+          <NavLink to="/contact" className={menuClass}>Contcat Us</NavLink>
         </li>
         <li id="menu-contact">
           <NavLink to="/faq" className={menuClass}>Faq</NavLink>
         </li>
-        <li id="menu-about">
+        <li id="menu-mentor">
           <NavLink to="/mentor" className={menuClass}>Mentor</NavLink>
         </li>
       </ul>
