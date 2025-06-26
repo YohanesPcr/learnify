@@ -1,20 +1,35 @@
-// Import React hook dan komponen/utility yang dibutuhkan
-import { useState } from "react";
-import { useParams } from "react-router-dom"; // Untuk mengambil parameter dari URL
-import courseData from "../json/courses.json"; // Ambil data course dari file JSON lokal
-import { registrationsPaketAPI } from "../services/registrationsPaketAPI"; // API service untuk pendaftaran
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { registrationsPaketAPI } from "../services/registrationsPaketAPI";
 import AlertBox from "../components/AlertBox";
 import EmptyState from "../components/EmptyState";
 import LoadingSpinner from "../components/LoadingSpinner";
 
+const API_URL = "https://znsvlpicrvbgxicnzrda.supabase.co/rest/v1/courses";
+const API_KEY =   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpuc3ZscGljcnZiZ3hpY256cmRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MTQzMzAsImV4cCI6MjA2NTE5MDMzMH0.3p4-awE53GsuXdMefxqnuIAqOYN2K7S3UHDWuD2E1Fc";
+// Ganti dengan API key kamu
+
+const headers = {
+  apikey: API_KEY,
+  Authorization: `Bearer ${API_KEY}`,
+};
+
 export default function RegisterPaketForm() {
-  // Ambil slug dari URL menggunakan react-router
   const { slug } = useParams();
+  const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [alert, setAlert] = useState({ type: "", message: "" });
 
-  // Cari course yang sesuai berdasarkan slug
-  const course = courseData.find((c) => c.slug === slug);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    paymentMethod: "",
+    accountNumber: "",
+    proofUrl: "",
+  });
 
-  // Daftar metode pembayaran yang tersedia
   const paymentOptions = [
     { method: "BCA", account: "1234567890 a.n PT Learnify Indonesia" },
     { method: "BNI", account: "4567891230 a.n PT Learnify Indonesia" },
@@ -22,36 +37,30 @@ export default function RegisterPaketForm() {
     { method: "OVO", account: "089912345678 a.n Learnify Pay" },
   ];
 
-  // State untuk menyimpan data form pendaftaran
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    paymentMethod: "",
-    accountNumber: "",
-    proof: null, // File bukti transfer
-  });
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const res = await axios.get(`${API_URL}?slug=eq.${slug}`, { headers });
+        setCourse(res.data[0] || null);
+      } catch (err) {
+        console.error("Gagal ambil data course:", err);
+        setCourse(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCourse();
+  }, [slug]);
 
-  // State loading saat submit dan alert untuk feedback
-  const [submitting, setSubmitting] = useState(false);
-  const [alert, setAlert] = useState({ type: "", message: "" });
-
-  // Jika slug tidak ditemukan dalam data kursus, tampilkan pesan kosong
-  if (!course) {
-    return <EmptyState message="Kursus tidak ditemukan." />;
-  }
-
-  // Fungsi utilitas untuk format harga dalam bentuk Rupiah
   const formatRupiah = (value) =>
     new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
     }).format(value);
 
-  // Handler perubahan input
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
 
-    // Jika memilih metode pembayaran, otomatis isi nomor rekening
     if (name === "paymentMethod") {
       const selected = paymentOptions.find((opt) => opt.method === value);
       setForm((prev) => ({
@@ -60,68 +69,71 @@ export default function RegisterPaketForm() {
         accountNumber: selected?.account || "",
       }));
     } else {
-      // Untuk input biasa dan file upload
       setForm((prev) => ({
         ...prev,
-        [name]: files ? files[0] : value,
+        [name]: value,
       }));
     }
   };
 
-  // Handler untuk submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitting(true); // Tampilkan spinner
-    setAlert({ type: "", message: "" }); // Reset alert
+    setSubmitting(true);
+    setAlert({ type: "", message: "" });
 
     try {
-      // Simulasi URL gambar bukti (tidak diunggah sungguhan)
-      const proofUrl = form.proof ? URL.createObjectURL(form.proof) : null;
+      const cleanPrice = Number(course.price.replace(/[^\d]/g, ""));
 
-      // Payload data yang dikirim ke API
       const payload = {
         name: form.name,
         email: form.email,
         course_slug: course.slug,
-        package_type: course.packageType,
-        price: Number(course.price.replace(/[^\d]/g, "")), // Hapus karakter non-digit
+        package_type: course.packagetype,
+        price: cleanPrice,
         payment_method: form.paymentMethod,
         account_number: form.accountNumber,
-        proof_url: proofUrl,
+        proof_url: form.proofUrl,
       };
 
-      // Kirim data ke API
       await registrationsPaketAPI.createRegistration(payload);
 
-      // Berhasil
       setAlert({
         type: "success",
         message: "Pendaftaran berhasil! Kami akan memverifikasi dalam waktu 24 jam.",
       });
 
-      // Reset form setelah berhasil
       setForm({
         name: "",
         email: "",
         paymentMethod: "",
         accountNumber: "",
-        proof: null,
+        proofUrl: "",
       });
     } catch (err) {
-      // Gagal kirim data
       setAlert({
         type: "error",
-        message: "Gagal mengirim data. Silakan periksa kembali dan coba lagi.",
+        message: "Gagal mengirim data. Silakan coba lagi.",
       });
       console.error(err);
     } finally {
-      setSubmitting(false); // Matikan spinner
+      setSubmitting(false);
     }
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center mt-10">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (!course) {
+    return <EmptyState message="Kursus tidak ditemukan." />;
+  }
+
   return (
     <section className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow-lg mt-10">
-      {/* Judul dan harga kursus */}
       <h2 className="text-2xl font-bold text-[#004C3F] mb-1">
         Daftar untuk: {course.title}
       </h2>
@@ -129,7 +141,6 @@ export default function RegisterPaketForm() {
         Harga: {formatRupiah(Number(course.price.replace(/[^\d]/g, "")))}
       </p>
 
-      {/* Formulir Pendaftaran */}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block font-semibold">Nama</label>
@@ -172,7 +183,6 @@ export default function RegisterPaketForm() {
           </select>
         </div>
 
-        {/* Nomor rekening terisi otomatis dan hanya dibaca */}
         <div>
           <label className="block font-semibold">Nomor Rekening</label>
           <input
@@ -183,19 +193,19 @@ export default function RegisterPaketForm() {
           />
         </div>
 
-        {/* Upload bukti transfer */}
         <div>
-          <label className="block font-semibold">Upload Bukti Pembayaran</label>
+          <label className="block font-semibold">Link Bukti Pembayaran (URL Gambar)</label>
           <input
-            name="proof"
-            type="file"
-            accept="image/*"
+            name="proofUrl"
+            type="url"
+            required
+            placeholder="https://..."
+            value={form.proofUrl}
             onChange={handleChange}
-            className="mt-1"
+            className="w-full border p-2 rounded mt-1"
           />
         </div>
 
-        {/* Tombol Submit */}
         <button
           type="submit"
           disabled={submitting}
@@ -205,17 +215,13 @@ export default function RegisterPaketForm() {
         </button>
       </form>
 
-      {/* Spinner atau alert di bawah form */}
       <div className="mt-6">
         {submitting && (
           <div className="flex justify-center">
             <LoadingSpinner />
           </div>
         )}
-
-        {alert.message && (
-          <AlertBox type={alert.type} message={alert.message} />
-        )}
+        {alert.message && <AlertBox type={alert.type} message={alert.message} />}
       </div>
     </section>
   );

@@ -1,37 +1,28 @@
-import { Users } from 'lucide-react'; // Ikon
-import heroImage from '../assets/hero-student.png'; // Gambar
+import { Users } from 'lucide-react';
+import heroImage from '../assets/hero-student.png';
 import Features from '../components/Features';
 import Categories from '../components/Categories';
-
 
 export default function HeroSection() {
   return (
     <>
-      {/* Hero Section */}
       <section id="hero-section" className="relative bg-gradient-to-r from-white via-[#f0fff8] to-[#d6f4eb] overflow-hidden">
-        <div id="hero-container" className="px-8 py-16 grid md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto relative z-10">
-          
-          {/* Kiri */}
+        <div id="hero-container" className="px-6 py-16 grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto relative z-10">
           <div id="hero-left">
             <p className="text-[#00B074] font-semibold mb-2">Start your favourite course</p>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
-              Now learnify from anywhere,<br />
+              Now Learning from anywhere,<br />
               and build your <span className="text-[#00B074]">bright career.</span>
             </h1>
             <button className="mt-6 bg-[#083b2e] text-white px-6 py-3 rounded-md shadow-md hover:bg-[#065c43] transition-all">
-              Start Learnify
+              Start Learning
             </button>
           </div>
 
-          {/* Kanan */}
           <div className="relative w-full flex justify-center">
             <img src={heroImage} alt="Student" className="w-[280px] md:w-[350px] relative z-20" />
-
-            {/* Dekorasi */}
             <div className="absolute top-8 right-10 w-16 h-16 rounded-full bg-[#00B074] opacity-70 z-10" />
             <div className="absolute bottom-6 left-6 w-24 h-24 bg-[#00B074] opacity-10 rounded-full z-0" />
-
-            {/* Badge */}
             <div className="absolute top-4 right-6 bg-[#083b2e] text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg z-20">
               2435 Courses
             </div>
@@ -56,10 +47,8 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Tambahan Section khusus Hero Page */}
       <Features />
       <Categories />
-   
     </>
   );
 }

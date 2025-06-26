@@ -39,13 +39,15 @@ export default function BlogList() {
 {/* Artikel Cards */}
 <div className="max-w-7xl mx-auto px-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {articles.map((article) => (
-    <div key={article.id} className="bg-white rounded-lg overflow-hidden shadow-sm">
-      <img
-        src={article.image}
-        alt={article.title}
-        className="w-full h-52 object-cover"
-      />
-      <div className="p-4">
+    <div key={article.id} className="card bg-white shadow-sm rounded-lg overflow-hidden">
+      <figure className="h-52 overflow-hidden">
+        <img
+          src={article.image}
+          alt={article.title}
+          className="w-full h-full object-cover"
+        />
+      </figure>
+      <div className="card-body p-4">
         <div className="flex items-center gap-2 text-xs text-[#7A7A7A]">
           <span>{article.category}</span>
           <span>•</span>
@@ -57,13 +59,17 @@ export default function BlogList() {
         <p className="text-sm text-[#4F4F4F] mt-2">
           {article.description}
         </p>
-        <a href="#" className="text-[#176B5D] text-sm font-semibold mt-3 inline-block">
+        <a
+          href="#"
+          className="text-[#176B5D] text-sm font-semibold mt-3 inline-block"
+        >
           Read More
         </a>
       </div>
     </div>
   ))}
 </div>
+
 
   
     </div>
