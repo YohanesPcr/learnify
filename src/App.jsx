@@ -1,7 +1,6 @@
 import './assets/tailwind.css';
-
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 
 import Loading from './components/Loading';
 import Categories from './components/Categories';
@@ -24,36 +23,44 @@ const MainLayout = React.lazy(() => import("./layouts/MainLayouts"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const CourseDetail = React.lazy(() => import("./pages/Coursedetail"));
 const MyLearning = React.lazy(() => import("./pages/MyLearning"));
-const Courses = React.lazy(() => import("./pages/Courses")); // ✅ Tambahkan halaman Courses baru
+const Courses = React.lazy(() => import("./pages/Courses"));
+
+/** Proteksi route: cek apakah sudah login */
+function PrivateRoute() {
+  const isAuthenticated = !!localStorage.getItem("user");
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
+}
 
 function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Router>
         <Routes>
-          {/* Route dengan Main Layout */}
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<HeroSection />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/instuctor" element={<InstuctorList />} />
-            <Route path="/instuctor/:id" element={<InstuctorDetail />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/courses" element={<Courses />} /> {/* ✅ Rute Courses ditambahkan */}
-            <Route path="/course/:title" element={<CourseDetail />} />
-            <Route path="/register/:slug" element={<RegisterPaketForm />} />
-            <Route path="/my-learning" element={<MyLearning />} />
-            <Route path="/401" element={<Error401 />} />
-            <Route path="/403" element={<Error403 />} />
-            <Route path="*" element={<Error400 />} />
-          </Route>
-
           {/* Route untuk halaman autentikasi */}
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot" element={<Forgot />} />
+          </Route>
+
+          {/* Route dengan proteksi login */}
+          <Route element={<PrivateRoute />}>
+            <Route element={<MainLayout />}>
+              <Route path="/" element={<HeroSection />} />
+              <Route path="/blog" element={<BlogList />} />
+              <Route path="/faq" element={<FaqPage />} />
+              <Route path="/instuctor" element={<InstuctorList />} />
+              <Route path="/instuctor/:id" element={<InstuctorDetail />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/course/:title" element={<CourseDetail />} />
+              <Route path="/register/:slug" element={<RegisterPaketForm />} />
+              <Route path="/my-learning" element={<MyLearning />} />
+              <Route path="/401" element={<Error401 />} />
+              <Route path="/403" element={<Error403 />} />
+              <Route path="*" element={<Error400 />} />
+            </Route>
           </Route>
         </Routes>
       </Router>

@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -84,10 +84,38 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-3">Be Social</h4>
             <div className="flex space-x-4">
-              <FaFacebook className="text-xl cursor-pointer hover:text-[#00B074]" aria-label="Facebook" />
-              <FaTwitter className="text-xl cursor-pointer hover:text-[#00B074]" aria-label="Twitter" />
-              <FaInstagram className="text-xl cursor-pointer hover:text-[#00B074]" aria-label="Instagram" />
-              <FaLinkedin className="text-xl cursor-pointer hover:text-[#00B074]" aria-label="LinkedIn" />
+              <a
+                href="https://www.facebook.com/genshaoperation"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebook className="text-xl hover:text-[#00B074]" />
+              </a>
+              <a
+                href="https://twitter.com/genshaoperation"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <FaTwitter className="text-xl hover:text-[#00B074]" />
+              </a>
+              <a
+                href="https://www.instagram.com/genshaoperation"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="text-xl hover:text-[#00B074]" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/genshaoperation"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="text-xl hover:text-[#00B074]" />
+              </a>
             </div>
           </div>
 

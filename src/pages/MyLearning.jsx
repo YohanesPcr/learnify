@@ -81,12 +81,12 @@ export default function MyLearning() {
                   <p className="text-sm text-gray-500 mb-2">Durasi: {course.duration}</p>
 
                   {course.gmeet && (
-                    <a href={course.gmeet} target="_blank" className="text-blue-600 text-sm block">
+                    <a href={course.gmeet} target="_blank" className="text-[#176B5D] text-sm font-semibold mt-3 inline-block">
                       Link GMeet
                     </a>
                   )}
                   {course.zoomlink && (
-                    <a href={course.zoomlink} target="_blank" className="text-blue-600 text-sm block">
+                    <a href={course.zoomlink} target="_blank" className="text-[#176B5D] text-sm font-semibold mt-3 inline-block">
                       Link Zoom
                     </a>
                   )}
