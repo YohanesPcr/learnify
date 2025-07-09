@@ -1,4 +1,3 @@
-// src/pages/ContactUs.jsx
 
 import { useEffect, useState } from "react";
 import { messagesAPI } from "../services/messagesAPI";
