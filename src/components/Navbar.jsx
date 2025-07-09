@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav id="navbar" className="bg-white shadow-sm py-4 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         <div id="navbar-logo" className="flex items-center space-x-2">
-        <a href="https://go.vercel.app" target="_blank" rel="noopener noreferrer">
+        <a href="https://go-ratu.vercel.app" target="_blank" rel="noopener noreferrer">
     <img
       src="/img/logo/logoh.png"
       alt="Logo"
