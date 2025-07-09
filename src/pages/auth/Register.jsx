@@ -18,7 +18,8 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
-    full_name: "",
+    nis: "", // ✅ Tambahan NIS
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -27,6 +28,7 @@ export default function Register() {
     major: "",
     grade: "",
     phone: "",
+    status: "No Progres", // Default
   });
 
   const handleChange = (e) => {
@@ -49,7 +51,7 @@ export default function Register() {
     }
 
     if (!validatePassword(form.password)) {
-      setError("Password minimal 8 karakter dan harus mengandung huruf serta angka.");
+      setError("Password minimal 8 karakter dan harus mengandung huruf dan angka.");
       setLoading(false);
       return;
     }
@@ -62,14 +64,14 @@ export default function Register() {
         navigate("/login");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Gagal mendaftar. Coba lagi.");
+      setError(err.response?.data?.message || "Gagal mendaftar. Silakan coba lagi.");
     } finally {
       setLoading(false);
     }
   };
 
   const isDisabled =
-    !form.full_name || !form.email || !form.password || !form.confirmPassword;
+    !form.nis || !form.name || !form.email || !form.password || !form.confirmPassword;
 
   return (
     <>
@@ -91,7 +93,14 @@ export default function Register() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="full_name"
+          name="nis"
+          placeholder="NIS (Nomor Induk Siswa)"
+          className="input input-success w-full mb-3"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="name"
           placeholder="Nama Lengkap"
           className="input input-success w-full mb-3"
           onChange={handleChange}
@@ -138,13 +147,23 @@ export default function Register() {
           className="input input-success w-full mb-3"
           onChange={handleChange}
         />
-        <input
-          type="text"
+
+        {/* Select Grade */}
+        <select
           name="grade"
-          placeholder="Kelas / Tingkat"
-          className="input input-success w-full mb-3"
+          className="select select-success w-full mb-4"
           onChange={handleChange}
-        />
+          defaultValue=""
+        >
+          <option disabled value="">
+            Pilih Kelas / Tingkat
+          </option>
+          <option value="X">X</option>
+          <option value="XI">XI</option>
+          <option value="XII">XII</option>
+        </select>
+
+        {/* Select Gender */}
         <select
           name="gender"
           className="select select-success w-full mb-4"
