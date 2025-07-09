@@ -7,6 +7,7 @@ import Categories from './components/Categories';
 import InstuctorDetail from './pages/InstuctorDetail';
 import ContactUs from './pages/ContactUs';
 import RegisterPaketForm from './pages/RegisterPaketForm';
+import Feedback from './pages/Feedback';
 
 // Lazy load pages and layouts
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
@@ -52,6 +53,7 @@ function App() {
               <Route path="/instuctor" element={<InstuctorList />} />
               <Route path="/instuctor/:id" element={<InstuctorDetail />} />
               <Route path="/contact" element={<ContactUs />} />
+              <Route path="/feedback" element={<Feedback />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/course/:title" element={<CourseDetail />} />

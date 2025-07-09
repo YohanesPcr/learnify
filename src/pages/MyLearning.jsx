@@ -4,8 +4,7 @@ import { Bell } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
 const BASE_URL = "https://znsvlpicrvbgxicnzrda.supabase.co/rest/v1";
-const API_KEY =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpuc3ZscGljcnZiZ3hpY256cmRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MTQzMzAsImV4cCI6MjA2NTE5MDMzMH0.3p4-awE53GsuXdMefxqnuIAqOYN2K7S3UHDWuD2E1Fc";
- // Ganti jika kamu pakai .env
+const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpuc3ZscGljcnZiZ3hpY256cmRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MTQzMzAsImV4cCI6MjA2NTE5MDMzMH0.3p4-awE53GsuXdMefxqnuIAqOYN2K7S3UHDWuD2E1Fc";
 
 const headers = {
   apikey: API_KEY,
@@ -36,10 +35,10 @@ export default function MyLearning() {
           const course = courseData.find((c) => c.slug === reg.course_slug);
           if (!course) return null;
           return {
-            ...reg,
-            ...course,
+            ...reg,        // data dari registrations, termasuk package_type dan status
+            ...course,     // data dari course
           };
-        }).filter(Boolean); // Hapus yang null
+        }).filter(Boolean);
 
         setCourses(combined);
       } catch (err) {
@@ -51,52 +50,73 @@ export default function MyLearning() {
   }, []);
 
   return (
-        <div className="bg-[#ffffff] text-[#043334] font-sans">
-            <PageHeader subtitle="My Learning" title="My Learning Page"/>  
-    <section className="bg-white py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#2d2d2d] mb-8">My Learning</h2>
+    <div className="bg-[#ffffff] text-[#043334] font-sans">
+      <PageHeader subtitle="My Learning" title="My Learning Page" />
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#2d2d2d] mb-8">My Learning</h2>
 
-        {courses.length === 0 ? (
-          <p className="text-gray-500">Belum ada kursus yang diverifikasi.</p>
-        ) : (
-          <div className="grid md:grid-cols-3 gap-6">
-            {courses.map((course, i) => (
-              <div key={i} className="card bg-base-100 shadow-sm border border-gray-200 relative">
-                {(course.gmeet || course.zoomlink) && (
-                  <div className="absolute top-2 right-2 bg-yellow-100 text-yellow-800 rounded-full p-1">
-                    <Bell className="w-5 h-5" />
+          {courses.length === 0 ? (
+            <p className="text-gray-500">Belum ada kursus yang diverifikasi.</p>
+          ) : (
+            <div className="grid md:grid-cols-3 gap-6">
+              {courses.map((course, i) => (
+                <div key={i} className="card bg-base-100 shadow-sm border border-gray-200 relative">
+                  {(course.gmeet || course.zoomlink) && (
+                    <div className="absolute top-2 right-2 bg-yellow-100 text-yellow-800 rounded-full p-1">
+                      <Bell className="w-5 h-5" />
+                    </div>
+                  )}
+                  <figure className="h-48 overflow-hidden">
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      className="w-full object-cover"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h4 className="text-[#00B074] font-semibold text-lg">{course.title}</h4>
+                    <p className="text-sm text-[#004C3F] mb-1">Instructor: {course.instructor}</p>
+                    <p className="text-sm text-gray-500 mb-2">Durasi: {course.duration}</p>
+
+                    {/* Tambahan Package Type */}
+                    {course.package_type && (
+                      <p className="text-sm text-[#176B5D] font-medium">
+                        Paket: <span className="font-semibold">{course.package_type}</span>
+                      </p>
+                    )}
+
+                    {/* Tambahan Status */}
+                    {course.status && (
+                      <p className={`text-sm mt-1 font-medium ${
+                        course.status === 'Completed'
+                          ? 'text-green-600'
+                          : course.status === 'On Progres'
+                          ? 'text-yellow-600'
+                          : 'text-gray-500'
+                      }`}>
+                        Status: {course.status}
+                      </p>
+                    )}
+
+                    {/* Link Meet */}
+                    {course.gmeet && (
+                      <a href={course.gmeet} target="_blank" rel="noreferrer" className="text-[#176B5D] text-sm font-semibold mt-3 inline-block">
+                        Link GMeet
+                      </a>
+                    )}
+                    {course.zoomlink && (
+                      <a href={course.zoomlink} target="_blank" rel="noreferrer" className="text-[#176B5D] text-sm font-semibold mt-3 inline-block">
+                        Link Zoom
+                      </a>
+                    )}
                   </div>
-                )}
-                <figure className="h-48 overflow-hidden">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full object-cover"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h4 className="text-[#00B074] font-semibold text-lg">{course.title}</h4>
-                  <p className="text-sm text-[#004C3F] mb-1">Instructor: {course.instructor}</p>
-                  <p className="text-sm text-gray-500 mb-2">Durasi: {course.duration}</p>
-
-                  {course.gmeet && (
-                    <a href={course.gmeet} target="_blank" className="text-[#176B5D] text-sm font-semibold mt-3 inline-block">
-                      Link GMeet
-                    </a>
-                  )}
-                  {course.zoomlink && (
-                    <a href={course.zoomlink} target="_blank" className="text-[#176B5D] text-sm font-semibold mt-3 inline-block">
-                      Link Zoom
-                    </a>
-                  )}
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
+              ))}
+            </div>
+          )}
         </div>
+      </section>
+    </div>
   );
 }

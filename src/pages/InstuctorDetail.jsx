@@ -69,9 +69,7 @@ export default function InstructorDetail() {
             </p>
           )}
 
-          <button className="mt-6 bg-[#043334] text-white py-2 px-4 rounded-md hover:bg-[#065f5f]">
-            Daftar Sekarang
-          </button>
+        
         </div>
       </div>
     </div>
