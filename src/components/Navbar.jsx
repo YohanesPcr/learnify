@@ -25,9 +25,10 @@ export default function Navbar() {
           <li><NavLink to="/my-learning" className={menuClass}>My Learning</NavLink></li>
           <li><NavLink to="/instuctor" className={menuClass}>Instuctor</NavLink></li>
           <li><NavLink to="/blog" className={menuClass}>Blog</NavLink></li>
-          <li><NavLink to="/contact" className={menuClass}>Contact Us</NavLink></li>
-           <li><NavLink to="/feedback" className={menuClass}>Feedback</NavLink></li>
           <li><NavLink to="/faq" className={menuClass}>Faq</NavLink></li>
+          <li><NavLink to="/feedback" className={menuClass}>Feedback</NavLink></li>
+           <li><NavLink to="/contact" className={menuClass}>Contact Us</NavLink></li>
+        
         </ul>
 
         <div id="navbar-buttons" className="space-x-3">

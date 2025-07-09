@@ -5,7 +5,6 @@ import { messagesAPI } from "../services/messagesAPI";
 import AlertBox1 from "../components/AlertBox1";
 import LoadingSpinner from "../components/LoadingSpinner";
 import EmptyState from "../components/EmptyState";
-import { AiFillEdit } from "react-icons/ai"; // Hapus AiFillDelete
 
 export default function ContactUs() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -13,7 +12,6 @@ export default function ContactUs() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const [editId, setEditId] = useState(null);
 
   const loadMessages = async () => {
     try {
@@ -35,27 +33,16 @@ export default function ContactUs() {
     e.preventDefault();
     try {
       setLoading(true);
-      if (editId) {
-        await messagesAPI.updateMessage(editId, form);
-        setSuccess("Pesan berhasil diperbarui!");
-      } else {
-        await messagesAPI.createMessage(form);
-        setSuccess("Pesan berhasil dikirim!");
-      }
+      await messagesAPI.createMessage(form);
+      setSuccess("Pesan berhasil dikirim!");
       setForm({ name: "", email: "", message: "" });
-      setEditId(null);
       loadMessages();
     } catch {
-      setError(editId ? "Gagal memperbarui pesan" : "Gagal mengirim pesan");
+      setError("Gagal mengirim pesan");
     } finally {
       setLoading(false);
       setTimeout(() => setSuccess(""), 3000);
     }
-  };
-
-  const handleEdit = (msg) => {
-    setForm({ name: msg.name, email: msg.email, message: msg.message });
-    setEditId(msg.id);
   };
 
   useEffect(() => {
@@ -73,9 +60,7 @@ export default function ContactUs() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-          <h3 className="text-lg font-semibold mb-4">
-            {editId ? "Edit Message" : "Leave us a message"}
-          </h3>
+          <h3 className="text-lg font-semibold mb-4">Leave us a message</h3>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm mb-1">Name</label>
@@ -110,27 +95,13 @@ export default function ContactUs() {
                 required
               ></textarea>
             </div>
-            <div className="flex gap-2">
-              <button
-                type="submit"
-                disabled={loading}
-                className="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700"
-              >
-                {loading ? "Menyimpan..." : editId ? "Update" : "Send"}
-              </button>
-              {editId && (
-                <button
-                  type="button"
-                  className="bg-gray-300 text-gray-800 px-4 rounded hover:bg-gray-400"
-                  onClick={() => {
-                    setForm({ name: "", email: "", message: "" });
-                    setEditId(null);
-                  }}
-                >
-                  Batal
-                </button>
-              )}
-            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700"
+            >
+              {loading ? "Mengirim..." : "Send"}
+            </button>
           </form>
         </div>
 
@@ -143,20 +114,11 @@ export default function ContactUs() {
               {messages.map((msg) => (
                 <li
                   key={msg.id}
-                  className="border border-gray-200 rounded-xl p-4 relative"
+                  className="border border-gray-200 rounded-xl p-4"
                 >
                   <p className="font-semibold text-emerald-700">{msg.name}</p>
                   <p className="text-sm text-gray-500">{msg.email}</p>
                   <p className="mt-2">{msg.message}</p>
-                  <div className="absolute top-2 right-2">
-                    <button
-                      onClick={() => handleEdit(msg)}
-                      className="text-blue-500 hover:text-blue-700"
-                      title="Edit"
-                    >
-                      <AiFillEdit />
-                    </button>
-                  </div>
                 </li>
               ))}
             </ul>

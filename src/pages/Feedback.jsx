@@ -3,7 +3,6 @@ import { feedbackAPI } from "../services/feedbackAPI";
 import AlertBox1 from "../components/AlertBox1";
 import LoadingSpinner from "../components/LoadingSpinner";
 import EmptyState from "../components/EmptyState";
-import { AiFillEdit } from "react-icons/ai";
 
 export default function Feedback() {
   const [form, setForm] = useState({ nama: "", rating: "", deskripsi: "", tanggal: "" });
@@ -11,7 +10,6 @@ export default function Feedback() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const [editId, setEditId] = useState(null);
 
   const loadFeedbacks = async () => {
     try {
@@ -39,42 +37,39 @@ export default function Feedback() {
 
     try {
       setLoading(true);
-      if (editId) {
-        await feedbackAPI.updateFeedback(editId, form);
-        setSuccess("Feedback successfully updated!");
-      } else {
-        await feedbackAPI.createFeedback({
-          nama: form.nama,
-          rating: form.rating,
-          deskripsi: form.deskripsi,
-          tanggal: new Date().toISOString().split("T")[0],
-        });
-        setSuccess("Feedback successfully submitted!");
-      }
+      await feedbackAPI.createFeedback({
+        nama: form.nama,
+        rating: form.rating,
+        deskripsi: form.deskripsi,
+        tanggal: new Date().toISOString().split("T")[0],
+      });
+      setSuccess("Feedback successfully submitted!");
       setForm({ nama: "", rating: "", deskripsi: "", tanggal: "" });
-      setEditId(null);
       loadFeedbacks();
     } catch {
-      setError(editId ? "Failed to update feedback" : "Failed to submit feedback");
+      setError("Failed to submit feedback");
     } finally {
       setLoading(false);
       setTimeout(() => setSuccess(""), 3000);
     }
   };
 
-  const handleEdit = (item) => {
-    setForm({
-      nama: item.nama,
-      rating: item.rating,
-      deskripsi: item.deskripsi,
-      tanggal: item.tanggal,
-    });
-    setEditId(item.id);
-  };
-
   useEffect(() => {
     loadFeedbacks();
   }, []);
+
+  const renderStars = (rating) => {
+    const stars = [];
+    const value = parseInt(rating);
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <span key={i} className={i < value ? "text-yellow-500" : "text-gray-300"}>
+          ★
+        </span>
+      );
+    }
+    return stars;
+  };
 
   return (
     <div className="bg-white p-10 rounded-xl shadow-md max-w-4xl mx-auto mt-10">
@@ -88,9 +83,7 @@ export default function Feedback() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* FORM */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-green-800">
-            {editId ? "Edit Feedback" : "Submit Your Feedback"}
-          </h3>
+          <h3 className="text-lg font-semibold mb-4 text-green-800">Submit Your Feedback</h3>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm mb-1 text-green-800">Name</label>
@@ -127,27 +120,13 @@ export default function Feedback() {
               ></textarea>
             </div>
 
-            <div className="flex gap-2">
-              <button
-                type="submit"
-                disabled={loading}
-                className="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700"
-              >
-                {loading ? "Saving..." : editId ? "Update" : "Submit"}
-              </button>
-              {editId && (
-                <button
-                  type="button"
-                  className="bg-gray-200 text-gray-800 px-4 rounded hover:bg-gray-300"
-                  onClick={() => {
-                    setForm({ nama: "", rating: "", deskripsi: "", tanggal: "" });
-                    setEditId(null);
-                  }}
-                >
-                  Cancel
-                </button>
-              )}
-            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700"
+            >
+              {loading ? "Saving..." : "Submit"}
+            </button>
           </form>
         </div>
 
@@ -161,21 +140,15 @@ export default function Feedback() {
               {feedbacks.map((item) => (
                 <li
                   key={item.id}
-                  className="border border-green-200 rounded-xl p-4 relative shadow-sm"
+                  className="border border-green-200 rounded-xl p-4 shadow-sm"
                 >
                   <p className="font-semibold text-green-700">{item.nama}</p>
-                  <p className="text-sm text-gray-600">Rating: {item.rating}</p>
+                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                    <span>Rating:</span>
+                    <span className="flex">{renderStars(item.rating)}</span>
+                  </div>
                   <p className="text-sm text-gray-500 mb-1">Date: {item.tanggal}</p>
                   <p className="mt-1 text-gray-700">{item.deskripsi}</p>
-                  <div className="absolute top-2 right-2">
-                    <button
-                      onClick={() => handleEdit(item)}
-                      className="text-green-600 hover:text-green-800"
-                      title="Edit"
-                    >
-                      <AiFillEdit />
-                    </button>
-                  </div>
                 </li>
               ))}
             </ul>
