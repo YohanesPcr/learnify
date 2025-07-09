@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
             Join now to receive personalized recommendations from the full Coursera catalog.
           </p>
 
-          {/* DaisyUI Styled Input */}
+          {/* Input Email */}
           <div className="mt-6 flex justify-center">
             <div className="join">
               <label className="input input-bordered join-item flex items-center gap-2 w-64 md:w-80">
@@ -36,16 +36,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Decorative Half Circles */}
+        {/* Decorative Circles */}
         <div className="absolute bottom-6 left-6 w-14 h-14 bg-[#A5D9CE] rounded-br-full rounded-tl-full rotate-180"></div>
         <div className="absolute bottom-6 right-6 w-14 h-14 bg-[#A5D9CE] rounded-bl-full rounded-tr-full rotate-180"></div>
       </section>
 
-      {/* Footer Main Section */}
+      {/* Footer Section */}
       <footer className="bg-[#083b2e] text-white py-12">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
 
-          {/* Get in Touch */}
+          {/* Get in Touch Form */}
           <div>
             <h4 className="font-semibold mb-3">Get in Touch</h4>
             <form className="space-y-2">
@@ -75,17 +75,19 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-3">Contact Us</h4>
             <p>
-              #724, 6th Floor, 23rd Cross, 7th Block, ERUPOP 2nd Stage, State - 2342 454
+              Jl. Purnawarman No. 36 B, Rt. 03 Rw. 05<br />
+              Kel. Babakan Ciamis, Kec. Sumur Bandung<br />
+              Kota Bandung, Provinsi Jawa Barat
             </p>
-            <p className="mt-2">1244 66 66 8888</p>
+            <p className="mt-2">WhatsApp: <a href="https://wa.me/628112468988" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#00B074]">+62 8112468988</a></p>
           </div>
 
-          {/* Social Media */}
+          {/* Social Media Links */}
           <div>
             <h4 className="font-semibold mb-3">Be Social</h4>
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/genshaoperation"
+                href="https://www.facebook.com/share/1BoZpwY14C/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -93,7 +95,7 @@ export default function Footer() {
                 <FaFacebook className="text-xl hover:text-[#00B074]" />
               </a>
               <a
-                href="https://twitter.com/genshaoperation"
+                href="https://x.com/officialgopusat?s=21&t=Fxf2ndhN5-wzd0UbQHzrCw"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter"
@@ -101,7 +103,7 @@ export default function Footer() {
                 <FaTwitter className="text-xl hover:text-[#00B074]" />
               </a>
               <a
-                href="https://www.instagram.com/genshaoperation"
+                href="https://www.instagram.com/officialganeshaoperation?igsh=MTAxdXFlZ2Z0Ync2Yg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -109,12 +111,20 @@ export default function Footer() {
                 <FaInstagram className="text-xl hover:text-[#00B074]" />
               </a>
               <a
-                href="https://www.linkedin.com/company/genshaoperation"
+                href="https://www.linkedin.com/company/ganesha-operation/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="text-xl hover:text-[#00B074]" />
+              </a>
+              <a
+                href="https://wa.me/628112468988"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp className="text-xl hover:text-[#00B074]" />
               </a>
             </div>
           </div>
